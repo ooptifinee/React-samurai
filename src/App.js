@@ -7,7 +7,7 @@ import Profile from "./components/Profile";
 
 const App = () => {
   return (
-
+    // lalalal
       <div className='app-wrapper'>
           <Header/>
           <Navbar/>
