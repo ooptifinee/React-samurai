@@ -1,0 +1,17 @@
+.content {
+    grid-area: c;
+    background-color: lightgrey;
+}
+
+.background img {
+    width: 40%;
+}
+.item__mrbin img {
+    width: 10%;
+}
+
+.yoda {
+    width: 105px;
+    height: 90px;
+    border-radius: 50px;
+}
