@@ -6,7 +6,6 @@ import Post from "./Post/Post";
 const MyPosts = () => {
     return <div className={Prof.content}>
         <div>
-            <div>ava + description</div>
             My posts
             <div>
                 <textarea> </textarea>

@@ -1,11 +1,14 @@
 import React from "react";
 import Style from './Dialogs.module.css'
+import {BrowserRouter} from "react-router-dom";
 
 const Dialogs = (props) => {
     return (
-        <div>
-            dialogs
-        </div>
+        <BrowserRouter>
+            <div>
+                dialogs
+            </div>
+        </BrowserRouter>
     )
 }
 

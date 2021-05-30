@@ -1,7 +1,16 @@
 .nav {
     grid-area: n;
-    background-color: brown;
+    background-color: #cbbb41;
 }
+
+.navButton a {
+    color: white;
+}
+
+a.active {
+    color: aqua;
+}
+
 .link {
     color: white;
 }
