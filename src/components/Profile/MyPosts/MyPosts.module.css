@@ -4,14 +4,14 @@
 }
 
 .background img {
-    width: 40%;
+    width: 50%;
 }
 .item__mrbin img {
     width: 10%;
 }
 
 .yoda {
-    width: 105px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50px;
 }

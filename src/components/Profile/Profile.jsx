@@ -5,7 +5,7 @@ import ImageLink from "./MyPosts/ImageLink";
 
 const Profile = () => {
     return (
-        <div className={ProStyle.content}>
+        <div>
             <div>
                 <ImageLink/>
                 <MyPosts/>
