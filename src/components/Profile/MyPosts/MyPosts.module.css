@@ -4,14 +4,13 @@
 }
 
 .background img {
-    width: 50%;
-}
-.item__mrbin img {
-    width: 10%;
+    width: 100%;
 }
 
-.yoda {
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
+.windowEnter {
+    padding: 6px;
+}
+
+.item__mrbin img {
+    width: 10%;
 }

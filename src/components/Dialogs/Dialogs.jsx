@@ -1,24 +1,46 @@
 import React from "react";
-import Style from './Dialogs.module.css'
+import style from './Dialogs.module.css'
 import {BrowserRouter, NavLink} from "react-router-dom";
 
-const Dialogs = (props) => {
+const DialogItem = (props) => {
+    let path = "/dialogs/" + props.id
     return (
-        <BrowserRouter>
-            <div className={Style.chats}>
-                <div className={Style.Dialogs}>
-                    <div><NavLink to="/dialogs/1"> user 1</NavLink></div>
-                    <div><NavLink to="/dialogs/2"> user 2</NavLink></div>
-                    <div><NavLink to="/dialogs/3"> user 3</NavLink></div>
-                    <div><NavLink to="/dialogs/4"> user 4</NavLink></div>
+        <div className={style.dialogs + " " + style.active}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    )
+}
+
+const Message = (props) => {
+    return (
+        <div className={style.dialog}>{props.message}</div>
+    )
+}
+
+const Dialogs = (props) => {
+
+    let dialogsData = [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'user2'},
+    ]
+
+    let messagesData = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'Hi'}
+    ]
+
+    return (
+            <div className={style.chats}>
+                <div className={style.dialogs}>
+                    <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+                    <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
                 </div>
-                <div className={Style.Messages}>
-                    <div>hi</div>
-                    <div>how are your</div>
-                    <div>Goodbye</div>
+                <div className={style.messages}>
+                    <Message message={messagesData[0].message}/>
+                    <Message message={messagesData[1].message}/>
                 </div>
             </div>
-        </BrowserRouter>
+
     )
 }
 
