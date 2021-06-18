@@ -6,3 +6,8 @@
 .dialogs {
     text-decoration: none;
 }
+
+.dialogItems {
+    padding: 10px;
+    color: white;
+}

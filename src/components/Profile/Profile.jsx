@@ -3,12 +3,12 @@ import ProStyle from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ImageLink from "./MyPosts/ImageLink";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
             <div>
                 <ImageLink/>
-                <MyPosts/>
+                <MyPosts posts={ props.posts } />
             </div>
         </div>
     )
