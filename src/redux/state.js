@@ -1,40 +1,52 @@
-import {rerenderEntireTree} from "../render";
+// import {rerenderEntireTree} from "../render";
 
-let state = {
-    postData: [
-        {message: 'Hi', likesCount: '12'},
-        {message: 'It\'s my first post', likesCount: '10'},
-    ],
-    newPostChange: '',
-    dialogsData: [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'user2'},
-        {id: 3, name: 'user3'},
-        {id: 4, name: 'user4'}
-    ],
-    messagesData: [
-        {id: 1, message: 'Hi'},
-        {id: 2, message: 'Hi'},
-        {id: 3, message: 'Hi'},
-        {id: 4, message: 'Hi'}
-    ]
-}
+let store = {
+    _state: {
+        postData: [
+            {message: 'Hi', likesCount: '12'},
+            {message: 'It\'s my first post', likesCount: '10'},
+        ],
+        newPostChange: '',
+        dialogsData: [
+            {id: 1, name: 'Dimych'},
+            {id: 2, name: 'user2'},
+            {id: 3, name: 'user3'},
+            {id: 4, name: 'user4'}
+        ],
+        messagesData: [
+            {id: 1, message: 'Hi'},
+            {id: 2, message: 'Hi'},
+            {id: 3, message: 'Hi'},
+            {id: 4, message: 'Hi'}
+        ]
+    },
+    getState() {
+        return this._state;
+    },
+    _callSubscriber() {
 
-window.state = state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
 
-export let addPost = () => {
-    let newPost = {
-        message: state.newPostChange,
-        likesCount: 0
+    dispatch(action){
+         if (action.type === 'ADD-POST'){
+             let newPost = {
+                 message: this._state.newPostChange,
+                 likesCount: 1
+             }
+             this._state.postData.push(newPost);
+             this._state.newPostChange = '';
+             this._callSubscriber(this._state)
+         }
+         else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+             this._state.newPostChange = action.newText;
+             this._callSubscriber(this._state)
+         }
     }
-    state.postData.push(newPost);
-    state.newPostChange = '';
-    rerenderEntireTree(state)
 }
 
-export let updateNewPostText = (newText) => {
-    state.newPostChange = newText;
-    rerenderEntireTree(state)
-}
-
-export default state;
+//store - OOP
+window.state = store;
+export default store;

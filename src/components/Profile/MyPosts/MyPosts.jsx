@@ -6,15 +6,17 @@ const MyPosts = (props) => {
 
     let postsElement = props.postData.map( p => <Post massage={p.message} likesCount={p.likesCount} />)
 
+
     let userText = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
-
     let updateUserText = () => {
         let text = userText.current.value;
-        props.updateNewPostText(text);
+        let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        props.dispatch(action);
     }
+
 
     return <div className={Prof.content}>
         <div className={Prof.windowEnter}>

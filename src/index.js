@@ -1,8 +1,19 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-// import App from "./App";
-import state from "./redux/state";
-// import {updateNewPostText} from "./redux/state"
-import {rerenderEntireTree} from "./render";
+import store from "./redux/state";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-rerenderEntireTree(state)
+let rerenderEntireTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+
+            <App state={store._state}
+                 dispatch={store.dispatch.bind(store)}/>
+
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+
+rerenderEntireTree(store.getState());
+store.subscribe(rerenderEntireTree);

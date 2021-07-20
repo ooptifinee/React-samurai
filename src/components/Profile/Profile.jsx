@@ -11,8 +11,7 @@ const Profile = (props) => {
                 <ImageLink/>
                 <MyPosts postData={ props.postData }
                          newPostChange={props.newPostChange}
-                         addPost={props.addPost}
-                         updateNewPostText={props.updateNewPostText}/>
+                         dispatch={props.dispatch}/>
             </div>
         </div>
     )
