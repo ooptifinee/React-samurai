@@ -13,12 +13,10 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-item'>
-                    <Route path='/profile' render={() => <Profile postData={props.state.postData}
-                                                                  newPostChange={props.state.newPostChange}
+                    <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
                                                                   dispatch={props.dispatch}/>}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs chatMesData={props.state.messagesData}
-                                                  chatDialData={props.state.dialogsData}/>}/>
+                           render={() => <Dialogs store={props.store}/>}/>
                 </div>
             </div>
         </BrowserRouter>
