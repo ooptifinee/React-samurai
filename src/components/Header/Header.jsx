@@ -1,18 +1,10 @@
 import React from 'react';
-import HeaderCSS from './Header.module.css';
+import s from './Header.module.css';
 
 const Header = () => {
-    return (
-        <header className={HeaderCSS.header}>
-            <img src='../svg/RPC-JP_Logo.png' alt='png'/>
-            {/*<div>*/}
-            {/*    <a className={HeaderCSS.fontt}> Home -</a>*/}
-            {/*    <a className={HeaderCSS.fontt}> News -</a>*/}
-            {/*    <a className={HeaderCSS.fontt}> Feed -</a>*/}
-            {/*    <a className={HeaderCSS.fontt}> Message</a>*/}
-            {/*</div>*/}
-        </header>
-    )
+    return <header className={s.header}>
+        <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png' />
+    </header>
 }
 
 export default Header;

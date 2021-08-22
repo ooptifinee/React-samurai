@@ -1,37 +1,46 @@
-import React from "react";
-import Prof from './MyPosts.module.css';
-import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import React from 'react';
+import s from './MyPosts.module.css';
+import Post from './Post/Post';
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
+
+
 
 const MyPosts = (props) => {
-    let postsElement = props.profilePage.postData.map(p => <Post massage={p.message}
-                                                     likesCount={p.likesCount}/>)
+    let postsElements =
+        props.posts.map( p => <Post message={p.message} likesCount={p.likesCount}/>);
+
     let newPostElement = React.createRef();
+
     let addPost = () => {
+        //props.addPost();
         props.dispatch(addPostActionCreator());
     }
+
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text)
+        //props.updateNewPostText(text);
+        //let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
     }
 
-
-    return <div className={Prof.content}>
-        <div className={Prof.windowEnter}>
+    return (
+        <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostChange}/>
+                    <textarea onChange={ onPostChange } ref={newPostElement}
+                              value={props.newPostText} />
                 </div>
-                <button onClick={addPost}>Add Post</button>
-                {/*<button></button>*/}
+                <div>
+                    <button onClick={ addPost }>Add post</button>
+                </div>
+            </div>
+            <div className={s.posts}>
+                { postsElements }
             </div>
         </div>
-        <div className={Prof.userPost}>
-            {postsElement}
-        </div>
-    </div>
+    )
 }
 
 export default MyPosts;
